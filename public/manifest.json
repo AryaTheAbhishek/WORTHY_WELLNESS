@@ -1,0 +1,29 @@
+{
+  "name": "Worthy Wellness",
+  "short_name": "Worthy Wellness",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#5682df",
+  "theme_color": "#5682df",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./images/favicon_io/logo-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/favicon_io/logo-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/favicon_io/logo-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

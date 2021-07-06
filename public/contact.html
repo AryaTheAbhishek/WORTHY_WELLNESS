@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charity | Contact</title>
+    <meta name="author" content="Abhisneha" />
+    <link rel="icon" type="image/png" href="../images/icon.png" />
+
+    <!-- Old Stylesheets and Scripts Starts -->
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/icomoon.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/superfish.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/340cef720c.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Old Stylesheet and Scripts ends  -->
+
+    <!-- new style and scripts -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-5a9c68d/tailwind.min.css"
+      integrity="sha512-XgPcoW5S5ESFTO59Iy12VrhVngtzvQiLUKgp4JG3h1NVLPbdcNBNKELTswD/zDt4MEo98e7f16D/S07Arix11g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- new style and scripts ends -->
+  </head>
+  <body>
+    <!-- Firebase SDK starts  -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-performance.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth__en.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
+    />
+    <script src="../js/firebase.js"></script>
+    <!-- Firebase SDK ends  -->
+    <div id="fh5co-wrapper">
+      <div id="fh5co-page">
+        <header id="fh5co-header-section" class="sticky-banner">
+          <div class="container">
+            <div class="nav-header">
+              <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"
+                ><i></i
+              ></a>
+              <h1 id="fh5co-logo"><a href="index.html">Worthy Wellness</a></h1>
+              <nav id="fh5co-menu-wrap" role="navigation">
+                <ul class="sf-menu" id="fh5co-primary-menu">
+                  <li id="signIn">
+                    <a href="./signin.html"
+                      ><span style="cursor: pointer"> Sign In</span></a
+                    >
+                  </li>
+                  <li id="logout">
+                    <a><span style="cursor: pointer"> Logout</span></a>
+                  </li>
+                  <li id="profile"><a href="./profile.html">Profile</a></li>
+                  <li><a href="./index.html">Home</a></li>
+                  <li><a href="./contact.html">Contact</a></li>
+                  <li><a href="./statistics.html">Statistics</a></li>
+                  <li>
+                    <a href="./donations.html">Donations</a>
+                  </li>
+                  <li><a href="./map.html">Map</a></li>
+                  <li><a href="./blogs.html">Blogs</a></li>
+                  <li class="active">
+                    <a href="./donate.html">Donate</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        <div class="fh5co-hero">
+          <div class="fh5co-overlay"></div>
+          <div
+            class="fh5co-cover text-center"
+            data-stellar-background-ratio="0.5"
+            style="background-image: url(./gallery/hero_2.jpg)"
+          >
+            <div class="desc animate-box">
+              <h2><strong>Contact</strong> us</h2>
+              <br />
+              <span
+                ><a class="btn btn-primary btn-lg" href="./donate.html"
+                  >Donate Now</a
+                ></span
+              >
+              <div
+                class="text-white text-xl text-extrabold"
+                style="color: #fff"
+              >
+                <div class="flex justify-center text-4xl">
+                  You've been here for
+                  <span id="counter" class="text-blue-800"> </span> minutes.
+                </div>
+                <div class="flex justify-center text-4xl">
+                  Estimated amount of people that passed away:
+                  <span id="death" class="text-red-600"> </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="fh5co-contact" class="animate-box">
+          <div class="container">
+            <form action="#">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="section-title">Our Address</h3>
+                  <p>
+                    Far far away, behind the word mountains, far from the
+                    countries Vokalia and Consonantia, there live the blind
+                    texts.
+                  </p>
+                  <p>BIHAR & WEST BENGAL</p>
+                  <ul class="contact-info">
+                    <li>
+                      <i class="fas fa-map-marked-alt"></i>behind the word
+                      mountains 06352
+                    </li>
+                    <li><i class="fas fa-phone-alt"></i>+ 1234 5678 90</li>
+                    <li>
+                      <a href="mailto:kambojtarun02@gmail.com"
+                        ><i class="fas fa-envelope"></i>email@domain.com</a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://github.com/Tarun-Kamboj"
+                        ><i class="fas fa-link"></i>www.oursite.com</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12678830.748275798!2d79.30111097707774!3d25.06298511029254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1613489105858!5m2!1sen!2sin"
+                    width="100%"
+                    height="300"
+                    frameborder="0"
+                    style="border: 0"
+                    allowfullscreen="true"
+                    aria-hidden="false"
+                    tabindex="0"
+                  ></iframe>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <footer class="footer-1 bg-gray-100 py-8 sm:py-12">
+          <div class="container mx-auto px-4">
+            <div class="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
+              <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
+                <h5 class="text-xl font-bold mb-6">Features</h5>
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a
+                      href="./donations.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Donations</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./donate.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Donate</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./signin.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Sign In</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./profile.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Profile</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      onclick="logout()"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
+                <h5 class="text-xl font-bold mb-6">Resources</h5>
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a
+                      href="./index.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Home</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./map.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Map</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./statistics.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Statistics</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./blogs.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Blog</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
+                <h5 class="text-xl font-bold mb-6">About</h5>
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Team</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Locations</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Privacy</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Terms</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
+                <h5 class="text-xl font-bold mb-6">Help</h5>
+                <ul class="list-none footer-links">
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Support</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="#"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Help Center</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="./contact.html"
+                      class="
+                        border-b border-solid border-transparent
+                        hover:border-purple-800 hover:text-purple-800
+                      "
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="px-4 mt-4 sm:w-1/3 sm:mx-auto xl:mt-0 xl:ml-auto">
+                <h5 class="text-xl font-bold mb-6 sm:text-center xl:text-left">
+                  SUBSCRIBE TO OUR NEWSLETTER
+                </h5>
+                <div class="flex sm:justify-center xl:justify-start">
+                  <form
+                    class="w-full max-w-sm"
+                    name="newsletter_name"
+                    id="newsletter_id"
+                    onsubmit="newsletter_fun(event)"
+                  >
+                    <div
+                      class="flex items-center border-b border-teal-500 py-2"
+                    >
+                      <input
+                        class="
+                          appearance-none
+                          bg-transparent
+                          border-none
+                          w-full
+                          text-gray-700
+                          mr-3
+                          py-1
+                          px-2
+                          leading-tight
+                          focus:outline-none
+                        "
+                        type="text"
+                        placeholder="email@domain.com"
+                        aria-label="email"
+                        name="email"
+                      />
+                    </div>
+
+                    <div class="flex items-center justify-end py-4">
+                      <button
+                        class="
+                          bg-blue-500
+                          hover:bg-blue-700
+                          text-white
+                          font-bold
+                          py-2
+                          px-4
+                          rounded
+                          focus:outline-none focus:shadow-outline
+                        "
+                        type="submit"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                sm:flex sm:flex-wrap sm:-mx-4
+                mt-6
+                pt-6
+                sm:mt-12 sm:pt-12
+                border-t
+              "
+            >
+              <div class="sm:w-full px-4 md:w-1/6">
+                <strong>WORTHY</strong><br />
+                <strong>WELLNESS</strong><br />
+              </div>
+              <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
+                <h6 class="font-bold mb-2">Address</h6>
+                <address class="not-italic mb-4 text-sm">
+                  CEMK<br />
+                  kolaghat, WB 721171
+                </address>
+              </div>
+
+              <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
+                <div class="font-semibold font-md text-gray-300 pt-4">
+                  &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  Abhisneha, All Rights Reserved
+                </div>
+              </div>
+
+              <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
+                <div
+                  class="
+                    mt-6
+                    pb-16
+                    lg:pb-0
+                    w-4/5
+                    lg:w-full
+                    mx-auto
+                    flex flex-wrap
+                    items-center
+                    justify-between
+                  "
+                >
+                  <a class="link" href="#" data-tippy-content="@facebook_handle"
+                    ><svg
+                      class="
+                        h-6
+                        fill-current
+                        text-gray-600
+                        hover:text-green-700
+                      "
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Facebook</title>
+                      <path
+                        d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"
+                      />
+                    </svg>
+                  </a>
+                  <a class="link" href="#" data-tippy-content="@twitter_handle"
+                    ><svg
+                      class="
+                        h-6
+                        fill-current
+                        text-gray-600
+                        hover:text-green-700
+                      "
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Twitter</title>
+                      <path
+                        d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"
+                      />
+                    </svg>
+                  </a>
+                  <a class="link" href="#" data-tippy-content="@github_handle"
+                    ><svg
+                      class="
+                        h-6
+                        fill-current
+                        text-gray-600
+                        hover:text-green-700
+                      "
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>GitHub</title>
+                      <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    class="link"
+                    href="#"
+                    data-tippy-content="@instagram_handle"
+                    ><svg
+                      class="
+                        h-6
+                        fill-current
+                        text-gray-600
+                        hover:text-green-700
+                      "
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Instagram</title>
+                      <path
+                        d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                      />
+                    </svg>
+                  </a>
+                  <a class="link" href="#" data-tippy-content="@youtube_handle"
+                    ><svg
+                      class="
+                        h-6
+                        fill-current
+                        text-gray-600
+                        hover:text-green-700
+                      "
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <title>YouTube</title>
+                      <path
+                        d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!--External Scripts Starts -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.easing.1.3.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/sticky.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/hoverIntent.js"></script>
+    <script src="../js/superfish.js"></script>
+    <script src="../js/main.js"></script>
+    <!--External Scripts Ends -->
+
+    <script>
+      firebase.auth().onAuthStateChanged(function (user) {
+        //   user ? handleSignedInEdit(user) : window.open("./index.html", "_self");
+        user ? handleSignedInUser(user) : handleSignedOutUser(user);
+        function handleSignedInUser(user) {
+          console.log("User is LoggedIn");
+          document.getElementById("signIn").style.display = "none";
+          $("#logout").attr("style", "display: block");
+          $("#profile").attr("style", "display: block");
+        }
+        function handleSignedOutUser(user) {
+          console.log("User is Not LoggedIn");
+          $("#signIn").attr("style", "display: block");
+          $("#logout").attr("style", "display: none !important");
+          $("#profile").attr("style", "display: none !important");
+        }
+      });
+      let isUser = firebase.auth().currentUser;
+      if (isUser) {
+        console.log("User is LoggedIn");
+        document.getElementById("signIn").style.display = "none";
+        $("#logout").attr("style", "display: block");
+        $("#profile").attr("style", "display: block");
+      } else {
+        console.log("User is Not LoggedIn");
+        $("#signIn").attr("style", "display: block");
+        $("#logout").attr("style", "display: none !important");
+        $("#profile").attr("style", "display: none !important");
+      }
+    </script>
+
+    <!-- new scripts starts -->
+    <script src="./script.js"></script>
+    <!-- new scripts ends  -->
+  </body>
+</html>
