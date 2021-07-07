@@ -48,7 +48,8 @@ google.charts.load("current", {
   packages: ["map"],
   // Note: you will need to get a mapsApiKey for your project.
   // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-  mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
+  // mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
+  mapsApiKey: "AIzaSyD8TXr00_qFXTgED1LPrgF67lYvrfiyyLI",
 });
 google.charts.setOnLoadCallback(drawMap);
 

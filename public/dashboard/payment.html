@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Dashboard</title>
+    <title>Worthy Wellness | Dashboard | Payments</title>
 
     <link rel="stylesheet" href="stylesheets/main.css" />
 
@@ -17,6 +17,13 @@
   </head>
 
   <body>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-database.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>
+
+    <script src="/__/firebase/init.js"></script>
+
     <div class="wrapper">
       <nav id="sidebar" class="sidebar collapsed">
         <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -163,7 +170,7 @@
           <div class="container-fluid p-0">
             <div class="row mb-2 mb-xl-3">
               <div class="col-auto d-none d-sm-block">
-                <h3>Orders</h3>
+                <h3>Payment Made</h3>
               </div>
             </div>
             <div class="col-md-12 col-xl-12">
@@ -172,118 +179,18 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Order ID</th>
+                        <th>Date & Time</th>
                         <th>Transaction ID</th>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Pincode</th>
-                        <th>Total Items</th>
-                        <th>Total Amount</th>
-                        <th>Shipping Charge</th>
-                        <th>Delivery Status</th>
-                        <th>Action</th>
+                        <th>Gift ID</th>
+                        <th>Transaction Amount</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="list_donors_data">
                       <tr>
-                        <td>#oi23456</td>
+                        <td>7/7/2021, 12:18:50 AM</td>
                         <td>#ti09876</td>
-                        <td>User Name</td>
-                        <td>123 street colony name</td>
-                        <td>12000</td>
-                        <td>3</td>
-                        <td>10,000/-</td>
-                        <td>50/-</td>
-                        <td>
-                          <a class="">
-                            <div class="custom-control custom-switch">
-                              <input
-                                type="checkbox"
-                                class="custom-control-input"
-                                id="customSwitches"
-                              />
-                              <label
-                                class="custom-control-label"
-                                for="customSwitches"
-                              ></label>
-                            </div>
-                          </a>
-                        </td>
-                        <td class="table-action">
-                          <a href="order-details.html">
-                            <i class="fas fa-eye pr-2"></i>
-                          </a>
-
-                          <a href="#"
-                            ><svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="feather feather-trash align-middle"
-                            >
-                              <polyline points="3 6 5 6 21 6"></polyline>
-                              <path
-                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                              ></path>
-                            </svg>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>#oi23456</td>
-                        <td>#ti09876</td>
-                        <td>User Name</td>
-                        <td>123 street colony name</td>
-                        <td>12000</td>
-                        <td>3</td>
-                        <td>10,000/-</td>
-                        <td>50/-</td>
-                        <td>
-                          <a class="">
-                            <div class="custom-control custom-switch">
-                              <input
-                                type="checkbox"
-                                class="custom-control-input"
-                                id="customSwitches"
-                              />
-                              <label
-                                class="custom-control-label"
-                                for="customSwitches"
-                              ></label>
-                            </div>
-                          </a>
-                        </td>
-
-                        <td class="table-action">
-                          <a href="order-details.html">
-                            <i class="fas fa-eye pr-2"></i>
-                          </a>
-                          <a href="#"
-                            ><svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="feather feather-trash align-middle"
-                            >
-                              <polyline points="3 6 5 6 21 6"></polyline>
-                              <path
-                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                              ></path>
-                            </svg>
-                          </a>
-                        </td>
+                        <td>gift001</td>
+                        <td>500/-</td>
                       </tr>
                     </tbody>
                   </table>
@@ -310,5 +217,39 @@
     </div>
     <script src="javascripts/main.js"></script>
     <script src="javascripts/app.js"></script>
+
+    <script>
+      (function listed_donors() {
+        firebase
+          .database()
+          .ref(`users`)
+          .on("value", (snapshot) => {
+            if (snapshot.exists()) {
+              let dataHtml = "";
+              document.getElementById("list_donors_data").innerHTML = "";
+              snapshot.forEach((element) => {
+                if (element.val().donee) {
+                  firebase
+                    .database()
+                    .ref(`users/${element.key}/donee`)
+                    .on("value", (childSnapshot) => {
+                      childSnapshot.forEach((child_element) => {
+                        dataHtml += `
+                          <tr>
+                            <td>${child_element.val().current_time}</td>
+                            <td>${child_element.val().payment_id}</td>
+                            <td>${child_element.val().gift_id}</td>
+                            <td>${child_element.val().payment_amount}</td>
+                          </tr>
+                        `;
+                      });
+                    });
+                }
+              });
+              document.getElementById("list_donors_data").innerHTML += dataHtml;
+            }
+          });
+      })();
+    </script>
   </body>
 </html>

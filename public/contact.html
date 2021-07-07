@@ -58,15 +58,6 @@
               <h1 id="fh5co-logo"><a href="index.html">Worthy Wellness</a></h1>
               <nav id="fh5co-menu-wrap" role="navigation">
                 <ul class="sf-menu" id="fh5co-primary-menu">
-                  <li id="signIn">
-                    <a href="./signin.html"
-                      ><span style="cursor: pointer"> Sign In</span></a
-                    >
-                  </li>
-                  <li id="logout">
-                    <a><span style="cursor: pointer"> Logout</span></a>
-                  </li>
-                  <li id="profile"><a href="./profile.html">Profile</a></li>
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./statistics.html">Statistics</a></li>
@@ -110,6 +101,27 @@
                 <div class="flex justify-center text-4xl">
                   Estimated amount of people that passed away:
                   <span id="death" class="text-red-600"> </span>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  style="cursor: pointer"
+                  id="signIn"
+                >
+                  <a href="./signin.html">Sign In</a>
+                </div>
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  id="logout"
+                  style="cursor: pointer"
+                  onclick="logout()"
+                >
+                  Logout
+                </div>
+                <div class="btn btn-primary btn-sm mx-2" id="profile">
+                  <a href="./profile.html">Profile</a>
                 </div>
               </div>
             </div>
@@ -161,6 +173,109 @@
               </div>
             </form>
           </div>
+        </div>
+
+        <div id="fh5co-contact" class="animate-box">
+          <form
+            name="contact_form_name"
+            id="contact_form_id"
+            onsubmit="contact_form_fun(event)"
+          >
+            <div class="container flex">
+              <div
+                class="
+                  w-1/2
+                  mt-24
+                  px-8
+                  lg:px-16
+                  xl:px-32
+                  py-16
+                  mx-auto
+                  bg-gray-100
+                  text-gray-900
+                  rounded-lg
+                  shadow-lg
+                  justify-center
+                "
+              >
+                <div class="">
+                  <div>
+                    <span class="uppercase text-md text-gray-600 font-bold"
+                      >Full Name</span
+                    >
+                    <input
+                      class="
+                        w-full
+                        bg-gray-300
+                        text-gray-900
+                        mt-2
+                        p-3
+                        rounded-lg
+                        focus:outline-none focus:shadow-outline
+                      "
+                      type="text"
+                      name="name"
+                    />
+                  </div>
+                  <div class="mt-8">
+                    <span class="uppercase text-md text-gray-600 font-bold"
+                      >Email</span
+                    >
+                    <input
+                      class="
+                        w-full
+                        bg-gray-300
+                        text-gray-900
+                        mt-2
+                        p-3
+                        rounded-lg
+                        focus:outline-none focus:shadow-outline
+                      "
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                  <div class="mt-8">
+                    <span class="uppercase text-md text-gray-600 font-bold"
+                      >Message</span
+                    >
+                    <textarea
+                      class="
+                        w-full
+                        h-32
+                        bg-gray-300
+                        text-gray-900
+                        mt-2
+                        p-3
+                        rounded-lg
+                        focus:outline-none focus:shadow-outline
+                      "
+                      name="message"
+                    ></textarea>
+                  </div>
+                  <div class="mt-8">
+                    <button
+                      type="submit"
+                      class="
+                        uppercase
+                        text-md
+                        font-bold
+                        tracking-wide
+                        bg-indigo-500
+                        text-gray-100
+                        p-3
+                        rounded-lg
+                        w-full
+                        focus:outline-none focus:shadow-outline
+                      "
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
 
         <footer class="footer-1 bg-gray-100 py-8 sm:py-12">
@@ -577,18 +692,25 @@
           $("#profile").attr("style", "display: none !important");
         }
       });
-      // let isUser = firebase.auth().currentUser;
-      // if (isUser) {
-      //   console.log(isUser);
-      //   document.getElementById("signIn").style.display = "none";
-      //   $("#logout").attr("style", "display: block");
-      //   $("#profile").attr("style", "display: block");
-      // } else {
-      //   console.log("User is Not LoggedIn");
-      //   $("#signIn").attr("style", "display: block");
-      //   $("#logout").attr("style", "display: none !important");
-      //   $("#profile").attr("style", "display: none !important");
-      // }
+
+      function contact_form_fun(e) {
+        e.preventDefault();
+        const get_contact_form = document.forms["contact_form_name"];
+        firebase
+          .database()
+          .ref(`contact_form_data`)
+          .push({
+            name: get_contact_form.name.value,
+            email: get_contact_form.email.value,
+            message: get_contact_form.message.value,
+          })
+          .then(function () {
+            document.forms["contact_form_name"].reset();
+            alert(
+              "Thanks we received your request one of our member will contact you soon."
+            );
+          });
+      }
     </script>
 
     <!-- new scripts starts -->

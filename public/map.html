@@ -139,7 +139,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center heading-section">
-                <h3>Countries that requires help</h3>
+                <h3>THE WORLD’S 20 HUNGRIEST COUNTRIES IN 2020</h3>
                 <p>
                   Use the map below, in order to have a general overview of what
                   countries require help and find quick information about them
@@ -670,6 +670,54 @@
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
+          ["Country", "Rank"],
+          ["CHAD", 1],
+          ["TIMOR-LESTE", 2],
+          ["MADAGASCAR", 3],
+          ["HAITI", 4],
+          ["MOZAMBIQUE", 5],
+          ["LIBERIA", 6],
+          ["SIERRA LEONE", 7],
+          ["LESOTHO", 8],
+          ["AFGHANISTAN", 9],
+          ["NIGERIA", 10],
+          ["RWANDA", 11],
+          ["KOREA", 12],
+          ["SUDAN", 13],
+          ["INDIA", 14],
+          ["ANGOLA", 15],
+          ["ETHIOPIA", 16],
+          ["CONGO", 17],
+          ["BURKINA FASO", 18],
+          ["TANZANIA", 19],
+          ["PAKISTAN", 20],
+        ]);
+
+        var options = {
+          colorAxis: { colors: ["#e31b23", "black", "#00853f"] },
+          defaultColor: "#f5f5f5",
+          backgroundColor: "#81d4fa",
+        };
+
+        var chart = new google.visualization.GeoChart(
+          document.getElementById("regions_div")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- <script>
+      google.charts.load("current", {
+        packages: ["geochart"],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        mapsApiKey: "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY",
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
           ["Country", "Population"],
           ["China", "China: 1,363,800,000"],
           ["India", "India: 1,242,620,000"],
@@ -696,6 +744,6 @@
         chart.draw(data, options);
       }
       ///----Statistics page graph 01 geo chart ends-------//
-    </script>
+    </script> -->
   </body>
 </html>

@@ -864,7 +864,10 @@
         document.getElementById("login_container").style.display = "none";
         document.getElementById("new_user_container").style.display = "block";
         const get_user_form = document.forms["new_user_form_name"];
-        if (user.displayName) get_user_form.name.value = user.displayName;
+        if (user.displayName) {
+          get_user_form.name.value = user.displayName;
+          get_user_form.name.readOnly = true;
+        }
         if (user.email) {
           get_user_form.email.value = user.email;
           get_user_form.email.readOnly = true;

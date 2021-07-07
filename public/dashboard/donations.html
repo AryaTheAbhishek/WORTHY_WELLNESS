@@ -17,6 +17,13 @@
   </head>
 
   <body>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-database.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>
+
+    <script src="/__/firebase/init.js"></script>
+
     <div class="wrapper">
       <nav id="sidebar" class="sidebar collapsed">
         <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -163,7 +170,7 @@
           <div class="container-fluid p-0">
             <div class="row mb-2 mb-xl-3">
               <div class="col-auto d-none d-sm-block">
-                <h3>Contact</h3>
+                <h3>Donations</h3>
               </div>
             </div>
             <div class="col-md-12 col-xl-12">
@@ -173,51 +180,19 @@
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Mobile</th>
+                        <th>Date</th>
+                        <th>Behalf Of</th>
                         <th>Email</th>
-                        <th>Message</th>
-                        <th>Completed</th>
-                        <th>Action</th>
+                        <th>Mobile</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="list_donors_data">
                       <tr>
-                        <td>varsha</td>
-                        <td>1234567890</td>
-                        <td>12@gmail.com</td>
-                        <td>
-                          Lorem ipsum dolor, sit amet consectetur adipisicing
-                          elit.
-                        </td>
-                        <td>
-                          <input
-                            class="ml-4 pt-2"
-                            type="checkbox"
-                            name=""
-                            id=""
-                          />
-                        </td>
-                        <td class="table-action">
-                          <a href="#"
-                            ><svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="feather feather-trash align-middle"
-                            >
-                              <polyline points="3 6 5 6 21 6"></polyline>
-                              <path
-                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                              ></path>
-                            </svg>
-                          </a>
-                        </td>
+                        <td>Abhishek</td>
+                        <td>8/7/2021</td>
+                        <td>Sneha</td>
+                        <td>ss@gmail.com</td>
+                        <td>9123123132</td>
                       </tr>
                     </tbody>
                   </table>
@@ -244,5 +219,40 @@
     </div>
     <script src="javascripts/main.js"></script>
     <script src="javascripts/app.js"></script>
+
+    <script>
+      (function listed_donors() {
+        firebase
+          .database()
+          .ref(`users`)
+          .on("value", (snapshot) => {
+            if (snapshot.exists()) {
+              let dataHtml = "";
+              document.getElementById("list_donors_data").innerHTML = "";
+              snapshot.forEach((element) => {
+                if (element.val().donee) {
+                  firebase
+                    .database()
+                    .ref(`users/${element.key}/donee`)
+                    .on("value", (childSnapshot) => {
+                      childSnapshot.forEach((child_element) => {
+                        dataHtml += `
+                          <tr>
+                            <td>${element.val().user_name}</td>
+                            <td>${child_element.val().current_date}</td>
+                            <td>${child_element.val().donee_name}</td>
+                            <td>${child_element.val().donee_email}</td>
+                            <td>${child_element.val().donee_mobile}</td>
+                          </tr>
+                        `;
+                      });
+                    });
+                }
+              });
+              document.getElementById("list_donors_data").innerHTML += dataHtml;
+            }
+          });
+      })();
+    </script>
   </body>
 </html>

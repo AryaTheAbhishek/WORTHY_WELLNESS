@@ -17,6 +17,13 @@
   </head>
 
   <body>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-database.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>
+
+    <script src="/__/firebase/init.js"></script>
+
     <div class="wrapper">
       <nav id="sidebar" class="sidebar collapsed">
         <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -163,7 +170,7 @@
           <div class="container-fluid p-0">
             <div class="row mb-2 mb-xl-3">
               <div class="col-auto d-none d-sm-block">
-                <h3>Contact</h3>
+                <h3>Donors data</h3>
               </div>
             </div>
             <div class="col-md-12 col-xl-12">
@@ -172,34 +179,22 @@
                   <table class="table">
                     <thead>
                       <tr>
+                        <th>Date</th>
                         <th>Name</th>
                         <th>Mobile</th>
                         <th>Email</th>
-                        <th>Message</th>
-                        <th>Completed</th>
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="list_donors_data">
                       <tr>
-                        <td>varsha</td>
-                        <td>1234567890</td>
-                        <td>12@gmail.com</td>
-                        <td>
-                          Lorem ipsum dolor, sit amet consectetur adipisicing
-                          elit.
-                        </td>
-                        <td>
-                          <input
-                            class="ml-4 pt-2"
-                            type="checkbox"
-                            name=""
-                            id=""
-                          />
-                        </td>
+                        <td>8/7/2021</td>
+                        <td>Abhishek</td>
+                        <td>8581900601</td>
+                        <td>abhishek@gmail.com</td>
                         <td class="table-action">
-                          <a href="#"
-                            ><svg
+                          <a href="#">
+                            <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
                               height="24"
@@ -244,5 +239,72 @@
     </div>
     <script src="javascripts/main.js"></script>
     <script src="javascripts/app.js"></script>
+
+    <script>
+      (function listed_donors() {
+        firebase
+          .database()
+          .ref(`users`)
+          .orderByChild("user_is")
+          .equalTo("Donor")
+          .on("value", (snapshot) => {
+            if (snapshot.exists()) {
+              document.getElementById("list_donors_data").innerHTML = "";
+              snapshot.forEach((element) => {
+                let dataHtml = "";
+                dataHtml += `
+                    <tr>
+                        <td>${element.val().current_date}</td>
+                        <td>${element.val().user_name}</td>
+                        <td>${element.val().user_mobile}</td>
+                        <td>${element.val().user_email}</td>
+                        <td class="table-action">
+                            <a 
+                            data-path="users/'${element.key}'"
+                            onclick='delete_data(this)'>
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-trash align-middle"
+                            >
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path
+                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                            ></path>
+                            </svg>
+                            </a>
+                        </td>
+                    </tr>
+                `;
+                document.getElementById("list_donors_data").innerHTML +=
+                  dataHtml;
+              });
+            }
+          });
+      })();
+      function delete_data(e) {
+        let result = confirm("Are you really want to delete.?");
+        if (result) {
+          firebase
+            .database()
+            .ref()
+            .child(e.dataset.path)
+            .remove()
+            .then(function (res) {
+              console.log("User deleted Successfully");
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
+      }
+    </script>
   </body>
 </html>

@@ -17,6 +17,13 @@
   </head>
 
   <body>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-database.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>
+
+    <script src="/__/firebase/init.js"></script>
+
     <div class="wrapper">
       <nav id="sidebar" class="sidebar collapsed">
         <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -173,18 +180,16 @@
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Mobile</th>
                         <th>Email</th>
                         <th>Message</th>
                         <th>Completed</th>
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="display_contact_data">
                       <tr>
-                        <td>varsha</td>
-                        <td>1234567890</td>
-                        <td>12@gmail.com</td>
+                        <td>Abhishek</td>
+                        <td>email@gmail.com</td>
                         <td>
                           Lorem ipsum dolor, sit amet consectetur adipisicing
                           elit.
@@ -244,5 +249,72 @@
     </div>
     <script src="javascripts/main.js"></script>
     <script src="javascripts/app.js"></script>
+
+    <script>
+      (function listed_newsletter() {
+        firebase
+          .database()
+          .ref(`contact_form_data`)
+          .on("value", (snapshot) => {
+            if (snapshot.exists()) {
+              document.getElementById("display_contact_data").innerHTML = "";
+              snapshot.forEach((element) => {
+                let dataHtml = "";
+                dataHtml += `
+                    <tr>
+                        <td>${element.val().name}</td>
+                        <td>${element.val().email}</td>
+                        <td>${element.val().message}</td>
+                        <td>
+                            <input class="ml-4 pt-2" type="checkbox" name="" id="" />
+                        </td>
+                        <td class="table-action">
+                            <a 
+                            data-path="contact_form_data/'${element.key}'"
+                            onclick='delete_data(this)'>
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-trash align-middle"
+                            >
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path
+                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                            ></path>
+                            </svg>
+                            </a>
+                        </td>
+                    </tr>
+                `;
+                document.getElementById("display_contact_data").innerHTML +=
+                  dataHtml;
+              });
+            }
+          });
+      })();
+      function delete_data(e) {
+        let result = confirm("Are you really want to delete.?");
+        if (result) {
+          firebase
+            .database()
+            .ref()
+            .child(e.dataset.path)
+            .remove()
+            .then(function (res) {
+              console.log("Data deleted Successfully");
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
+      }
+    </script>
   </body>
 </html>

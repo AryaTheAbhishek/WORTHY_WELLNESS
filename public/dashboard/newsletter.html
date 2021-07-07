@@ -261,7 +261,7 @@
                         </td>
                         <td class="table-action">
                             <a 
-                            data-path=newsletters/'${element.key}'
+                            data-path="newsletters/'${element.key}'"
                             onclick='delete_data(this)'>
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -299,9 +299,6 @@
             .child(e.dataset.path)
             .remove()
             .then(function (res) {
-              res.items.forEach(function (itemRef) {
-                itemRef.delete();
-              });
               console.log("Subscriber deleted Successfully");
             })
             .catch(function (error) {
