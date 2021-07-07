@@ -29,6 +29,13 @@
       referrerpolicy="no-referrer"
     />
     <!-- new style and scripts ends -->
+    <!-- <style>
+      #signIn,
+      #logout,
+      #profile {
+        display: none;
+      }
+    </style> -->
   </head>
   <body>
     <!-- Firebase SDK starts  -->
@@ -58,15 +65,6 @@
               <h1 id="fh5co-logo"><a href="index.html">Worthy Wellness</a></h1>
               <nav id="fh5co-menu-wrap" role="navigation">
                 <ul class="sf-menu" id="fh5co-primary-menu">
-                  <li id="signIn">
-                    <a href="./signin.html"
-                      ><span style="cursor: pointer"> Sign In</span></a
-                    >
-                  </li>
-                  <li id="logout">
-                    <a><span style="cursor: pointer"> Logout</span></a>
-                  </li>
-                  <li id="profile"><a href="./profile.html">Profile</a></li>
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./statistics.html">Statistics</a></li>
@@ -99,6 +97,39 @@
                   >Donate Now</a
                 ></span
               >
+              <div
+                class="text-white text-xl text-extrabold"
+                style="color: #fff"
+              >
+                <div class="flex justify-center text-4xl">
+                  You've been here for
+                  <span id="counter" class="text-blue-800"> </span> minutes.
+                </div>
+                <div class="flex justify-center text-4xl">
+                  Estimated amount of people that passed away:
+                  <span id="death" class="text-red-600"> </span>
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  style="cursor: pointer"
+                  id="signIn"
+                >
+                  <a href="./signin.html">Sign In</a>
+                </div>
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  id="logout"
+                  style="cursor: pointer"
+                  onclick="logout()"
+                >
+                  Logout
+                </div>
+                <div class="btn btn-primary btn-sm mx-2" id="profile">
+                  <a href="./profile.html">Profile</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -158,10 +189,12 @@
               >
                 <img src="./gallery/cake01.jpeg" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>500</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="500"
+                      data-giftId="gift01"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -182,10 +215,12 @@
               >
                 <img src="./gallery/bouquet01.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>520</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="520"
+                      data-giftId="gift02"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -206,10 +241,12 @@
               >
                 <img src="./gallery/cake02.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>610</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="610"
+                      data-giftId="gift03"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -230,10 +267,12 @@
               >
                 <img src="./gallery/book01.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>340</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="340"
+                      data-giftId="gift04"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -254,10 +293,12 @@
               >
                 <img src="./gallery/plant01.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>650</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="650"
+                      data-giftId="gift05"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -278,10 +319,12 @@
               >
                 <img src="./gallery/book02.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>530</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="530"
+                      data-giftId="gift06"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -302,10 +345,12 @@
               >
                 <img src="./gallery/plant02.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>480</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="480"
+                      data-giftId="gift07"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -326,10 +371,12 @@
               >
                 <img src="./gallery/book03.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>330</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="330"
+                      data-giftId="gift08"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -350,10 +397,12 @@
               >
                 <img src="./gallery/book04.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>540</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="540"
+                      data-giftId="gift09"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -374,10 +423,12 @@
               >
                 <img src="./gallery/cake03.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>460</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="460"
+                      data-giftId="gift10"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -398,10 +449,12 @@
               >
                 <img src="./gallery/plant03.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>340</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="340"
+                      data-giftId="gift11"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -422,10 +475,12 @@
               >
                 <img src="./gallery/bouquet02.png" class="img-responsive" />
                 <div class="w-full flex text-center py-2 font-semibold">
-                  <div class="w-1/2">Worth: <span id="price">500</span></div>
+                  <div class="w-1/2">Worth: <span>600</span></div>
                   <div class="w-1/2 hover:underline">
                     <a
                       href="#"
+                      data-price="600"
+                      data-giftId="gift12"
                       data-toggle="modal"
                       class="to_set_donation_amount"
                     >
@@ -616,7 +671,7 @@
                             id="grid-giftID"
                             type="text"
                             name="giftID"
-                            value="giftID-001"
+                            value=""
                             readonly
                             required
                           />
@@ -845,7 +900,14 @@
         </div>
 
         <!-- Successful payments -->
-        <div id="successful_payment_popup" class="modal fade">
+        <div
+          id="successful_payment_popup"
+          class="modal fade"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
           <div class="modal-dialog modal-confirm">
             <div class="modal-content">
               <div class="modal-header">
@@ -1280,20 +1342,22 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <script>
-      //IS user logged in starts
-      const isUser = firebase.auth().currentUser;
-      if (isUser) {
-        console.log("User is LoggedIn");
-        document.getElementById("signIn").style.display = "none";
-        $("#logout").attr("style", "display: block");
-        $("#profile").attr("style", "display: block");
-      } else {
-        console.log("User is Not LoggedIn");
-        $("#signIn").attr("style", "display: block");
-        $("#logout").attr("style", "display: none !important");
-        $("#profile").attr("style", "display: none !important");
-      }
-      //is user logged in ends
+      firebase.auth().onAuthStateChanged(function (user) {
+        //   user ? handleSignedInEdit(user) : window.open("./index.html", "_self");
+        user ? handleSignedInUser(user) : handleSignedOutUser(user);
+        function handleSignedInUser(user) {
+          console.log(user);
+          $("#signIn").attr("style", "display: none !important");
+          $("#logout").attr("style", "display: block !important");
+          $("#profile").attr("style", "display: block !important");
+        }
+        function handleSignedOutUser(user) {
+          console.log("User is Not LoggedIn");
+          $("#signIn").attr("style", "display: block !important");
+          $("#logout").attr("style", "display: none !important");
+          $("#profile").attr("style", "display: none !important");
+        }
+      });
 
       //------------filtering the things starts---------//
       $(document).ready(function () {
@@ -1330,8 +1394,11 @@
             if (user) $("#get_receiver_info").modal("show");
             else window.location.replace("./signin.html");
           });
+
           document.getElementById("grid-amount").defaultValue =
-            document.getElementById("price").innerHTML;
+            $(this).attr("data-price");
+          document.getElementById("grid-giftID").defaultValue =
+            $(this).attr("data-giftId");
         });
       });
       //-----setting the donation amount ends---------//
@@ -1410,19 +1477,25 @@
             donee_zip: get_user_form.zip.value,
             is_notify: get_user_form.is_subscribed.checked,
             payment_id: response.razorpay_payment_id,
+            payment_amount: get_user_form.amount.value,
+            gift_id: get_user_form.giftID.value,
           })
           .then(function () {
             //Send mail to both user using the SMTP api starts
             //a4aarya.abhi@gmail.com
             (function sendMail() {
+              let email_address = [
+                get_user_form.email.value,
+                current_user.email,
+              ];
               Email.send({
                 SecureToken: "06674ba8-5adc-4daf-b2c3-067733387e97",
-                To: [get_user_form.email.value, current_user.email],
+                To: email_address,
                 From: "a4aarya.abhi@gmail.com",
                 Subject:
                   "Thank you for your Donation :‑) Together we can face the fight 😎",
                 Body: `
-                <h4>Hii, ${current_user.email} Thank you.</h4>
+                <h4>Hii, ${current_user.displayName} Thank you.</h4>
                 <h5>Your Donation on behalf of ${get_user_form.name.value} is successful</h5>
                 <h5>We will notify you with details when your donation successfully delivered to needy one.</h5>
                 <p style="text-align:center">
@@ -1436,8 +1509,9 @@
             //Send mail to both user using the SMTP api ends
 
             $("#get_receiver_info").modal("hide");
-            document.getElementById("successful_payment_popup").style.display =
-              "block";
+            $("#successful_payment_popup").modal("show");
+            // document.getElementById("successful_payment_popup").style.display =
+            //   "block";
           });
       }
 

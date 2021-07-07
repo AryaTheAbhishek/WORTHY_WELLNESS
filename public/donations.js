@@ -10,10 +10,15 @@ function drawChart() {
   dataTable.addColumn({ type: "number", id: "Won/Loss" });
   dataTable.addRows([
     [new Date(), 7],
-    [new Date(2021, 3, 14), 4],
-    [new Date(2021, 3, 15), 0],
-    [new Date(2021, 3, 16), 2],
-    [new Date(2021, 3, 17), 4],
+    [new Date(2021, 6, 6), 2],
+    [new Date(2021, 6, 5), 3],
+    [new Date(2021, 6, 4), 1],
+    [new Date(2021, 6, 3), 5],
+    [new Date(2021, 6, 2), 0],
+    [new Date(2021, 5, 14), 4],
+    [new Date(2021, 5, 15), 0],
+    [new Date(2021, 5, 16), 2],
+    [new Date(2021, 5, 17), 4],
     // Many rows omitted for brevity.
     [new Date(2020, 9, 4), 2],
     [new Date(2020, 9, 5), 1],

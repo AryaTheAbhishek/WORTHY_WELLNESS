@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Charity | Contact</title>
+    <title>Worthy Wellness | Contact</title>
     <meta name="author" content="Abhisneha" />
     <link rel="icon" type="image/png" href="../images/icon.png" />
 
@@ -565,7 +565,7 @@
         //   user ? handleSignedInEdit(user) : window.open("./index.html", "_self");
         user ? handleSignedInUser(user) : handleSignedOutUser(user);
         function handleSignedInUser(user) {
-          console.log("User is LoggedIn");
+          console.log(user);
           document.getElementById("signIn").style.display = "none";
           $("#logout").attr("style", "display: block");
           $("#profile").attr("style", "display: block");
@@ -577,18 +577,18 @@
           $("#profile").attr("style", "display: none !important");
         }
       });
-      let isUser = firebase.auth().currentUser;
-      if (isUser) {
-        console.log("User is LoggedIn");
-        document.getElementById("signIn").style.display = "none";
-        $("#logout").attr("style", "display: block");
-        $("#profile").attr("style", "display: block");
-      } else {
-        console.log("User is Not LoggedIn");
-        $("#signIn").attr("style", "display: block");
-        $("#logout").attr("style", "display: none !important");
-        $("#profile").attr("style", "display: none !important");
-      }
+      // let isUser = firebase.auth().currentUser;
+      // if (isUser) {
+      //   console.log(isUser);
+      //   document.getElementById("signIn").style.display = "none";
+      //   $("#logout").attr("style", "display: block");
+      //   $("#profile").attr("style", "display: block");
+      // } else {
+      //   console.log("User is Not LoggedIn");
+      //   $("#signIn").attr("style", "display: block");
+      //   $("#logout").attr("style", "display: none !important");
+      //   $("#profile").attr("style", "display: none !important");
+      // }
     </script>
 
     <!-- new scripts starts -->

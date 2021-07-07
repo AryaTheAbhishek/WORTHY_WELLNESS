@@ -209,7 +209,7 @@
                 d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"
               />
             </svg>
-            Your role as <span id="user_is"></span>
+            Your role as <span class="pl-2" id="user_is"></span>
           </p>
           <p
             class="
@@ -313,7 +313,8 @@
       <div class="w-full lg:w-2/5">
         <!-- Big profile image for side bar (desktop) -->
         <img
-          src="https://source.unsplash.com/MP0IUfwrn0A"
+          id="user_image_id"
+          src="https://picsum.photos/350/450?random"
           class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
         />
         <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
@@ -676,11 +677,14 @@
     <!--External Scripts Ends -->
 
     <script>
-      let isUser = firebase.auth().currentUser;
-      isUser
-        ? handleSignedInEdit(isUser)
-        : window.open("./index.html", "_self");
+      firebase.auth().onAuthStateChanged(function (user) {
+        user ? handleSignedInEdit(user) : window.open("./signin.html", "_self");
+        console.log(user);
+      });
+
       function handleSignedInEdit(current_user) {
+        if (current_user.photoURL)
+          document.getElementById("user_image_id").src = current_user.photoURL;
         firebase
           .database()
           .ref(`users/${current_user.uid}`)

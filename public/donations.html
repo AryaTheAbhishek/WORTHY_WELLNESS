@@ -69,15 +69,6 @@
               <h1 id="fh5co-logo"><a href="index.html">Worthy Wellness</a></h1>
               <nav id="fh5co-menu-wrap" role="navigation">
                 <ul class="sf-menu" id="fh5co-primary-menu">
-                  <li id="signIn">
-                    <a href="./signin.html"
-                      ><span style="cursor: pointer"> Sign In</span></a
-                    >
-                  </li>
-                  <li id="logout">
-                    <a><span style="cursor: pointer"> Logout</span></a>
-                  </li>
-                  <li id="profile"><a href="./profile.html">Profile</a></li>
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./contact.html">Contact</a></li>
                   <li>
@@ -123,6 +114,26 @@
                 <div class="flex justify-center text-4xl">
                   Estimated amount of people that passed away:
                   <span id="death" class="text-red-600"> </span>
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  style="cursor: pointer"
+                  id="signIn"
+                >
+                  <a href="./signin.html">Sign In</a>
+                </div>
+                <div
+                  class="btn btn-primary btn-sm mx-2"
+                  id="logout"
+                  style="cursor: pointer"
+                  onclick="logout()"
+                >
+                  Logout
+                </div>
+                <div class="btn btn-primary btn-sm mx-2" id="profile">
+                  <a href="./profile.html">Profile</a>
                 </div>
               </div>
             </div>
@@ -1371,24 +1382,6 @@
           // $("#post_donation").attr("style", "display: block");
         }
       });
-      let isUser = firebase.auth().currentUser;
-      if (isUser) {
-        console.log("User is LoggedIn");
-        document.getElementById("signIn").style.display = "none";
-        $("#logout").attr("style", "display: block");
-        $("#profile").attr("style", "display: block");
-        $("#please_login").attr("style", "display: none");
-        $("#post_donation").attr("style", "display: block");
-      } else {
-        console.log("User is Not LoggedIn");
-        $("#signIn").attr("style", "display: block");
-        $("#logout").attr("style", "display: none !important");
-        $("#profile").attr("style", "display: none !important");
-        $("#please_login").attr("style", "display: block");
-        $("#post_donation").attr("style", "display: none");
-        // $("#please_login").attr("style", "display: none");
-        // $("#post_donation").attr("style", "display: block");
-      }
     </script>
 
     <script>

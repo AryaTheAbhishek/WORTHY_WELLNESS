@@ -85,8 +85,9 @@ var time = setInterval(countSeconds, 1000);
 function newsletter_fun(e) {
   e.preventDefault();
   const get_email_form = document.forms["newsletter_name"];
-  firebase.database
-    .ref("newsletters")
+  firebase
+    .database()
+    .ref(`newsletters`)
     .push({
       email: get_email_form.email.value,
     })
